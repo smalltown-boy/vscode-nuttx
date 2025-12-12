@@ -1,5 +1,6 @@
 const vscode = require("vscode");
 const { NuttXAppGenerator } = require('./projectGenerator');
+const { addProjectToWorkspace } = require('../addProjectToWorkspace');
 
 async function createNuttXProject() {
   const generator = new NuttXAppGenerator();
@@ -107,14 +108,10 @@ async function createNuttXProject() {
       stacksize
     });
 
-    // Теперь нужно добавить созданную папку в workspace
-    const projectUri = vscode.Uri.file(parentFolder);
-    vscode.workspace.updateWorkspaceFolders(0, 0, [{ uri: projectUri }]);
-    await vscode.commands.executeCommand('workbench.view.explorer');
-    await vscode.commands.executeCommand('list.focusFirst');
-    // Конец тестового кода
-
     vscode.window.showInformationMessage(result.message);
+
+    await addProjectToWorkspace(fullProjectPathUri);
+
   } catch (err) {
     vscode.window.showErrorMessage(`Failed to create project: ${err.message}`);
   }

@@ -25,6 +25,7 @@ class NuttxTreeProvider {
         new TreeItem('Configure board', 'nuttx-helper.ConfigBoard', vscode.TreeItemCollapsibleState.None, 'gear'),
         new TreeItem('Information', 'nuttx-helper.Info', vscode.TreeItemCollapsibleState.None, 'info'),
         new TreeItem('Create NuttX project', 'nuttx-helper.CreateNuttXProject', vscode.TreeItemCollapsibleState.None, 'wrench'),
+        new TreeItem('Configure USB port', 'nuttx-helper.ConfigUSB', vscode.TreeItemCollapsibleState.None, 'gear'),
       ];
     }
     return [];

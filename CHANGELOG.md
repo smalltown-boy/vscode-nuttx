@@ -2,7 +2,13 @@
 
 All project changes are documented here.
 
-## Version 0.1.2 (2025-12-11)
+## Version 0.1.4 (2025-12-12)
+
+### Work in Progress
+
+- Added a placeholder («stub») for the **Configure USB port** command.
+
+## Version 0.1.3 (2025-12-12)
 
 ### Features
 
@@ -14,3 +20,4 @@ All project changes are documented here.
 - Added the **Build project** command to build the project.
 - Added the **Information** command to display the extension version.
 - Implemented the ability to enter commands via the VSCode command line.
+- The created project is automatically added to the editor's workspace.
