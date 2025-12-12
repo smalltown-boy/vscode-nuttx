@@ -1,0 +1,120 @@
+{
+  "name": "nuttx-helper",
+  "version": "0.1.2",
+  "engines": {
+    "vscode": "^1.32.0"
+  },
+  "extensionKind": ["workspace", "ui"],
+  "main": "./src/extension.js",
+  "browser": "./out/extension.js",
+  "author": "Aleksandr Selivanov (https://github.com/smalltown-boy)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smalltown-boy/vscode-nuttx.git"
+  },
+
+  "activationEvents": [
+    "onCommand:nuttx-helper.Info",
+    "onCommand:nuttx-helper.Clean",
+    "onCommand:nuttx-helper.Build",
+    "onCommand:nuttx-helper.CreateNuttXProject",
+    "onCommand:nuttx-helper.SetBoard",
+    "onCommand:nuttx-helper.ConfigPaths",
+    "onCommand:nuttx-helper.ConfigBoard"
+  ],
+
+  "scripts": {
+    "compile": "tsc -p ./",
+    "build": "npm run compile && npm run package",
+    "package": "vsce package",
+    "clean": "rimraf out"
+  },
+
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "vsce": "^2.15.0",
+    "rimraf": "^5.0.0"
+  },
+
+  "contributes": {
+    "commands": [
+      {
+        "command": "nuttx-helper.Info",
+        "title": "About NuttX extension",
+        "category": "NuttX Helper"
+      },
+      {
+        "command": "nuttx-helper.Clean",
+        "title": "Clean project",
+        "category": "NuttX Helper"
+      },
+      {
+        "command": "nuttx-helper.Build",
+        "title": "Build project",
+        "category": "NuttX Helper"
+      },
+      {
+        "command": "nuttx-helper.CreateNuttXProject",
+        "title": "Create new NuttX project",
+        "category": "NuttX Helper"
+      },
+      {
+        "command": "nuttx-helper.SetBoard",
+        "title": "Set board",
+        "category": "NuttX Helper"
+      },
+      {
+        "command": "nuttx-helper.ConfigBoard",
+        "title": "Config board",
+        "category": "NuttX Helper"
+      },
+      {
+        "command": "nuttx-helper.ConfigPaths",
+        "title": "Config paths",
+        "category": "NuttX Helper"
+      }
+    ],
+
+    "configuration": {
+      "title": "Configuration NuttX Paths",
+      "properties": {
+        "nuttx.appsPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to NuttX apps directory"
+        },
+        "nuttx.nuttxPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to NuttX main directory"
+        },
+        "nuttx.selectedBoard": {
+          "type": "string",
+          "description": "Currently selected NuttX board"
+        },
+        "nuttx.selectedBoardPath": {
+          "type": "string",
+          "description": "Full path to selected board"
+        }
+      }
+    },
+
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "nuttx-explorer",
+          "title": "NuttX Helper",
+          "icon": "./icon/gear.svg"
+        }
+      ]
+    },
+    "views": {
+      "nuttx-explorer": [
+        {
+          "id": "nuttxCommands",
+          "name": "Commands"
+        }
+      ]
+    }
+  }
+}
