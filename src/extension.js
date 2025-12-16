@@ -11,7 +11,7 @@ const { configPaths } = require('./commands/configPaths');
 const { setBoard } = require('./commands/setBoard');
 const { configBoard } = require('./commands/configBoard');
 const { createNuttXProject } = require('./commands/createNuttXProject');
-const { configUSB } = require('./commands/configUSB');
+const { configRun } = require('./commands/configRun');
 
 module.exports = {
   activate,
@@ -37,7 +37,7 @@ function activate(context) {
   const commandSetBoard = "nuttx-helper.SetBoard";
   const commandConfigBoard = "nuttx-helper.ConfigBoard";
   const commandConfigPaths = "nuttx-helper.ConfigPaths";
-  const commandConfigUSB = "nuttx-helper.ConfigUSB";
+  const commandConfigRun = "nuttx-helper.ConfigRun";
 
   let pInfo = vscode.commands.registerCommand(commandInfo, printInfo);
   let pCreate = vscode.commands.registerCommand(commandCreate, createNuttXProject);
@@ -46,7 +46,7 @@ function activate(context) {
   let pSetBoard = vscode.commands.registerCommand(commandSetBoard, setBoard);
   let pConfigBoard = vscode.commands.registerCommand(commandConfigBoard, configBoard);
   let pConfigPaths = vscode.commands.registerCommand(commandConfigPaths, configPaths);
-  let pConfigUSB = vscode.commands.registerCommand(commandConfigUSB, configUSB);
+  let pConfigRun = vscode.commands.registerCommand(commandConfigRun, configRun);
 
   context.subscriptions.push(pInfo);
   context.subscriptions.push(pCreate);
@@ -55,7 +55,7 @@ function activate(context) {
   context.subscriptions.push(pSetBoard);
   context.subscriptions.push(pConfigBoard);
   context.subscriptions.push(pConfigPaths);
-  context.subscriptions.push(pConfigUSB);
+  context.subscriptions.push(pConfigRun);
 }
 
 // this method is called when your extension is deactivated

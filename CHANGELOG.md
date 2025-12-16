@@ -2,6 +2,16 @@
 
 All project changes are documented here.
 
+## Версия 0.1.5 (2025-12-16)
+
+### Work in Progress
+
+- The name of the **Configure USB port** command has been changed to **Run configurations**.
+
+### Fix
+
+- The full name of the developer has been added to the license header.
+
 ## Version 0.1.4 (2025-12-12)
 
 ### Work in Progress

@@ -1,6 +1,6 @@
 {
   "name": "nuttx-helper",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "engines": {
     "vscode": "^1.32.0"
   },
@@ -21,7 +21,7 @@
     "onCommand:nuttx-helper.SetBoard",
     "onCommand:nuttx-helper.ConfigPaths",
     "onCommand:nuttx-helper.ConfigBoard",
-    "onCommand:nuttx-helper.ConfigUSB"
+    "onCommand:nuttx-helper.ConfigRun"
   ],
 
   "scripts": {
@@ -75,8 +75,8 @@
         "category": "NuttX Helper"
       },
       {
-        "command": "nuttx-helper.ConfigUSB",
-        "title": "Config USB",
+        "command": "nuttx-helper.ConfigRun",
+        "title": "Config Run",
         "category": "NuttX Helper"
       }
     ],
