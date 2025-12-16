@@ -2,7 +2,21 @@
 
 All project changes are documented here.
 
-## Версия 0.1.5 (2025-12-16)
+## Version 0.1.6 (2025-12-16)
+
+### Work in Progress
+
+- Implemented a mechanism for selecting the target architecture for the **Run configurations** function.
+- The architecture selected by the user is saved in the extension settings file.
+- Implemented a mechanism for selecting programming tools for ARM microcontrollers for the **Run configurations** function.
+- The tool selected by the user is saved in the extension settings file.
+- "selectedPlatform", "selectedUSB" and "SelectedTool" fields have been added to package.json.
+
+### Fix
+
+- In the file CHANGELOG.md fixed an error in naming version 0.1.5.
+
+## Version 0.1.5 (2025-12-15)
 
 ### Work in Progress
 

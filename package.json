@@ -1,6 +1,6 @@
 {
   "name": "nuttx-helper",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "engines": {
     "vscode": "^1.32.0"
   },
@@ -101,6 +101,18 @@
         "nuttx.selectedBoardPath": {
           "type": "string",
           "description": "Full path to selected board"
+        },
+        "nuttx.selectedPlatform": {
+          "type": "string",
+          "description": "Target platform"
+        },
+        "nuttx.selectedUSB": {
+          "type": "string",
+          "description": "Select USB port"
+        },
+        "nuttx.selectedTool": {
+          "type": "string",
+          "description": "Select programming tool"
         }
       }
     },

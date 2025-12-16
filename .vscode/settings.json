@@ -6,5 +6,7 @@
     "nuttx.appsPath": "/home/coder/nuttxspace/apps",
     "nuttx.nuttxPath": "/home/coder/nuttxspace/nuttx",
     "nuttx.selectedBoard": "stm32f4discovery:nsh",
-    "nuttx.selectedBoardPath": "arm/stm32/stm32f4discovery:nsh"
+    "nuttx.selectedBoardPath": "arm/stm32/stm32f4discovery:nsh",
+    "nuttx.selectedPlatform": "ARM",
+    "nuttx.selectedTool": "OpenOCD"
 }
