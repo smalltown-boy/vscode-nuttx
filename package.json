@@ -1,6 +1,6 @@
 {
   "name": "nuttx-helper",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "engines": {
     "vscode": "^1.32.0"
   },
@@ -134,6 +134,41 @@
           "name": "Commands"
         }
       ]
-    }
+    },
+
+    "keybindings": [
+      {
+        "command": "nuttx-helper.Info",
+        "key": "ctrl+shift+i"
+      },
+      {
+        "command": "nuttx-helper.Clean",
+        "key": "ctrl+shift+c"
+      },
+      {
+        "command": "nuttx-helper.Build",
+        "key": "ctrl+shift+b"
+      },
+      {
+        "command": "nuttx-helper.CreateNuttXProject",
+        "key": "ctrl+shift+n"
+      },
+      {
+        "command": "nuttx-helper.SetBoard",
+        "key": "ctrl+shift+s"
+      },
+      {
+        "command": "nuttx-helper.ConfigBoard",
+        "key": "ctrl+shift+m"
+      },
+      {
+        "command": "nuttx-helper.ConfigPaths",
+        "key": "ctrl+shift+p"
+      },
+      {
+        "command": "uttx-helper.ConfigRun",
+        "key": "ctrl+shift+r"
+      },
+    ]
   }
 }

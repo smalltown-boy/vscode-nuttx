@@ -2,6 +2,21 @@
 
 All project changes are documented here.
 
+## Version 0.1.7 (2025‑12‑17)
+
+### Features
+
+All features have their own keyboard shortcuts for invocation. Full list:
+
+- `ctrl+shift+n` — create a new project.
+- `ctrl+shift+s` — select the target board or microcontroller.
+- `ctrl+shift+m` — configure the target board or microcontroller via `menuconfig`.
+- `ctrl+shift+p` — set up paths to the `apps` and `nuttx` folders in the Apache NuttX distribution.
+- `ctrl+shift+r` — configure the tool for writing the program to the microcontroller’s memory.
+- `ctrl+shift+i` — display information about the extension version.
+- `ctrl+shift+c` — clean the project.
+- `ctrl+shift+b` — compile the project.
+
 ## Version 0.1.6 (2025-12-16)
 
 ### Work in Progress
@@ -10,7 +25,7 @@ All project changes are documented here.
 - The architecture selected by the user is saved in the extension settings file.
 - Implemented a mechanism for selecting programming tools for ARM microcontrollers for the **Run configurations** function.
 - The tool selected by the user is saved in the extension settings file.
-- "selectedPlatform", "selectedUSB" and "SelectedTool" fields have been added to package.json.
+- To the package file.The **selectedPlatform**, **selectedUSB** and **SelectedTool** fields have been added to json.
 
 ### Fix
 
