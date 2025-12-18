@@ -35,8 +35,9 @@ async function configPaths() {
     let nuttxPath = nuttxUri[0].fsPath;
 
     const config = vscode.workspace.getConfiguration('nuttx');
-    await config.update('appsPath', appsPath, vscode.ConfigurationTarget.Workspace);
-    await config.update('nuttxPath', nuttxPath, vscode.ConfigurationTarget.Workspace);
+
+    await config.update('appsPath', appsPath, vscode.ConfigurationTarget.Global);
+    await config.update('nuttxPath', nuttxPath, vscode.ConfigurationTarget.Global);
 
     vscode.window.showInformationMessage(
       `NuttX paths configured:\napps: ${appsPath}\nnuttx: ${nuttxPath}`

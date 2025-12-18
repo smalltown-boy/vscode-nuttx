@@ -25,7 +25,7 @@ async function addProjectToWorkspace(projectUri) {
         { addToWorkspace: true }
     );
 }
-
+    
 module.exports = {
   addProjectToWorkspace
 };

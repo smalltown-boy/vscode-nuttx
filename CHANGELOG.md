@@ -2,6 +2,13 @@
 
 All project changes are documented here.
 
+## Version 0.1.9 (2025-12-18)
+
+### Fix
+
+- Fixed an issue that caused the loss of previously configured paths to the `apps` and `nuttx` directories after creating a new project.
+- When creating a project, the path to the `Kconfig` file is now automatically written to the `Kconfig` file in the `apps` directory.
+
 ## Version 0.1.8 (2025‑12‑18)
 
 ### Fix

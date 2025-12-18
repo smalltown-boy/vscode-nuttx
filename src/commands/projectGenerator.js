@@ -22,6 +22,7 @@ class NuttXAppGenerator {
             await this.writeFile(projectPath, `${appName}_main.c`, mainContent);
             await this.writeFile(projectPath, 'Kconfig', kconfigContent);
             await this.writeFile(projectPath, 'Make.defs', makeDefsContent);
+            await this.modifyKconfig(appName);
 
             return {
                 success: true,
@@ -111,11 +112,9 @@ endif
                 `;
     }
                 
-
-    /*
-    modifyKconfig(appName) {
-        const nuttxAppPath = vscode.workspace.getConfiguration(); //Читаем переменную, которая хранит путь до папки appd
-        const appsPath = cfg.get('nuttx.appsPath');               //Сохраняем путь, как он есть
+    async modifyKconfig(appName) {
+        const nuttxAppPath = vscode.workspace.getConfiguration('nuttx'); //Читаем переменную, которая хранит путь до папки appd
+        let appsPath = nuttxAppPath.get('appsPath');                     //Сохраняем путь, как он есть
 
         //Обязательная проверка, существует ли путь
         if (!appsPath) {
@@ -124,8 +123,9 @@ endif
         }
 
         //Вот тут главная "магия" - нужно прочитать Kconfig из nuttxspace/apps
+        //Пока тут абсолютный путь
         const kconfigUri = vscode.Uri.joinPath(vscode.Uri.file(appsPath), 'Kconfig');
-        const lineToAdd =  'source "${appPath}/${appName}"';
+        const lineToAdd = `source "${appsPath}/${appName}/Kconfig"`; 
 
         //Чтение файла
         let bytes;
@@ -149,8 +149,9 @@ endif
             kconfigUri,
             new TextEncoder().encode(newText)
         );
+        
     }
-        */
+        
 
 }
 
