@@ -2,6 +2,14 @@
 
 All project changes are documented here.
 
+## Version 0.1.8 (2025‑12‑18)
+
+### Fix
+
+- The Make.defs file has been added to the project files.
+- The name of the entry point to the user program is formed according to the principle of {project name}_main.c.
+- The project's Kconfig file specifies the bool data type for the project description.
+
 ## Version 0.1.7 (2025‑12‑17)
 
 ### Features

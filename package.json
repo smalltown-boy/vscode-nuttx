@@ -1,6 +1,6 @@
 {
   "name": "nuttx-helper",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "engines": {
     "vscode": "^1.32.0"
   },
@@ -168,7 +168,7 @@
       {
         "command": "uttx-helper.ConfigRun",
         "key": "ctrl+shift+r"
-      },
+      }
     ]
   }
 }

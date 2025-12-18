@@ -16,10 +16,12 @@ class NuttXAppGenerator {
             const makefileContent = this.generateMakefile(appName);
             const mainContent = this.generateMainC(appName, description, author);
             const kconfigContent = this.generateKconfig(appName, description, priority, stacksize);
+            const makeDefsContent = this.generateMakeDefs(appName);
 
             await this.writeFile(projectPath, 'Makefile', makefileContent);
             await this.writeFile(projectPath, `${appName}_main.c`, mainContent);
             await this.writeFile(projectPath, 'Kconfig', kconfigContent);
+            await this.writeFile(projectPath, 'Make.defs', makeDefsContent);
 
             return {
                 success: true,
@@ -51,7 +53,7 @@ include $(APPDIR)/Application.mk
 `;
     }
 
-    generateMainC(appName, description, author) {
+    generateMainC(appName, description, author) { //Имя точки входа в программу всегда должно оканчиваться на _main.c!
         const date = new Date().toISOString().split('T')[0];
         return `/****************************************************************************
  * ${appName}/${appName}_main.c
@@ -70,7 +72,7 @@ include $(APPDIR)/Application.mk
  * Public Functions
  ****************************************************************************/
 
-int main(int argc, FAR char *argv[])
+int ${appName}_main(int argc, FAR char *argv[])    
 {
   printf("Hello from ${appName}!\\n");
   return 0;
@@ -78,10 +80,10 @@ int main(int argc, FAR char *argv[])
 `;
     }
 
-    generateKconfig(appName, description, priority, stacksize) {
+    generateKconfig(appName, description, priority, stacksize) { //Здесь был tristate, что не очень хорошо подходит для обычных приложений NuttX
         const configName = appName.toUpperCase();
         return `config ${configName}
-\ttristate "${description}"
+\tbool "${description}"               
 \tdefault n
 \t---help---
 \t\t${description}
@@ -99,6 +101,57 @@ config ${configName}_STACKSIZE
 endif
 `;
     }
+
+    
+    generateMakeDefs(appName) {                    //Функция для создания обязательного файла Make.defs
+        const configName = appName.toUpperCase();
+        return `ifeq ($(${configName}),y)
+CONFIGURED_APPS += $(APPDIR)/${appName}
+endif
+                `;
+    }
+                
+
+    /*
+    modifyKconfig(appName) {
+        const nuttxAppPath = vscode.workspace.getConfiguration(); //Читаем переменную, которая хранит путь до папки appd
+        const appsPath = cfg.get('nuttx.appsPath');               //Сохраняем путь, как он есть
+
+        //Обязательная проверка, существует ли путь
+        if (!appsPath) {
+            vscode.window.showErrorMessage('NuttX path not configured!');
+            return;
+        }
+
+        //Вот тут главная "магия" - нужно прочитать Kconfig из nuttxspace/apps
+        const kconfigUri = vscode.Uri.joinPath(vscode.Uri.file(appsPath), 'Kconfig');
+        const lineToAdd =  'source "${appPath}/${appName}"';
+
+        //Чтение файла
+        let bytes;
+        try {
+            bytes = await vscode.workspace.fs.readFile(kconfigUri);
+        } catch (error) {
+            vscode.window.showErrorMessage(`Cannot read Kconfig at: ${kconfigUri.fsPath}`);
+        }
+
+        const text = new TextDecoder('utf-8').decode(bytes);
+
+        const already = text.split(/\r?\n/).some(l => l.trim() === lineToAdd);
+        if (already) {
+            return; 
+        }
+
+        const needsNewline = text.length > 0 && !text.endsWith('\n');
+        const newText = text + (needsNewline ? '\n' : '') + lineToAdd + '\n';
+
+        await vscode.workspace.fs.writeFile(
+            kconfigUri,
+            new TextEncoder().encode(newText)
+        );
+    }
+        */
+
 }
 
 module.exports = { NuttXAppGenerator };
