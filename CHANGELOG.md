@@ -2,6 +2,12 @@
 
 All project changes are documented here.
 
+## Version 0.1.10 (2025-12-19)
+
+### Fix
+
+- Fixed an error in generating Make.defs content.
+
 ## Version 0.1.9 (2025-12-18)
 
 ### Fix

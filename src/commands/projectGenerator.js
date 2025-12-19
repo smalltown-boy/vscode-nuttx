@@ -106,7 +106,7 @@ endif
     
     generateMakeDefs(appName) {                    //Функция для создания обязательного файла Make.defs
         const configName = appName.toUpperCase();
-        return `ifeq ($(${configName}),y)
+        return `ifeq ($(CONFIG_${configName}),y)
 CONFIGURED_APPS += $(APPDIR)/${appName}
 endif
                 `;
