@@ -3,6 +3,12 @@
 
 All project changes are documented here.
 
+## Version 0.2.1 (2025-12-22)
+
+### Fix
+
+- The terminal creation function has been significantly reworked. Now the terminal is created not when the extension starts, but after the `nuttx` paths are configured.
+
 ## Version 0.2.0 (2025-12-22)
 
 ### Fix

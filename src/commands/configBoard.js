@@ -1,5 +1,5 @@
 const vscode = require("vscode");
-const extension = require('../extension');
+const terminalManager = require('../terminal');
 
 function configBoard() {
   const config = vscode.workspace.getConfiguration('nuttx');
@@ -10,12 +10,13 @@ function configBoard() {
     vscode.window.showErrorMessage('NuttX path not configured!');
     return;
   }
-
-  const terminal = extension.nuttxTerminal;
+    
+  const terminal = terminalManager.getTerminal()
     
   if(terminal) {
     terminal.show();
     terminal.sendText('make menuconfig', true);
+    //terminal.sendText('whoami', true);
     vscode.window.showInformationMessage("Run menuconfig for configuring board...");
   } else {
     vscode.window.showInformationMessage("Terminal not initialized!");

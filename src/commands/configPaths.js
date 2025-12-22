@@ -1,4 +1,5 @@
 const vscode = require("vscode");
+const terminalManager = require('../terminal');
 
 async function configPaths() {
   vscode.window.showInformationMessage("Configure NuttX Paths.");
@@ -43,9 +44,17 @@ async function configPaths() {
       `NuttX paths configured:\napps: ${appsPath}\nnuttx: ${nuttxPath}`
     );
 
-    } catch (error) {
-      vscode.window.showErrorMessage(`Error configuring paths: ${error}`);
+    const terminal = await terminalManager.initTerminal(nuttxPath);
+
+    if (terminal) {
+      terminal.show();
+      terminal.sendText('whoami'); // Отправляем команду
+    } else {
+      vscode.window.showWarningMessage('Терминал не создан. Настройте пути NuttX.');
     }
+  } catch (error) {
+      vscode.window.showErrorMessage(`Error configuring paths: ${error}`);
+  }
 }
 
 module.exports = { configPaths };

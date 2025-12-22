@@ -1,5 +1,5 @@
 const vscode = require("vscode");
-const extension = require('../extension');
+const terminalManager = require('../terminal');
 
 async function buildProject() {
   const config = vscode.workspace.getConfiguration('nuttx');
@@ -66,7 +66,7 @@ async function buildProject() {
     }
   }
 
-  const terminal = extension.nuttxTerminal;
+  const terminal = terminalManager.getTerminal()
 
   if(terminal) {
     terminal.show();

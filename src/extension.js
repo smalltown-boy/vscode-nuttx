@@ -1,8 +1,6 @@
 const vscode = require("vscode");
 const { NuttxTreeProvider } = require('./nuttxTreeProvider');
-const { initTerminal } = require('./terminal');
-
-let nuttxTerminal = undefined;
+const terminalManager = require('./terminal'); // Импортируем терминал
 
 const { printInfo } = require('./commands/printInfo');
 const { cleanProject } = require('./commands/cleanProject');
@@ -16,15 +14,11 @@ const { configRun } = require('./commands/configRun');
 
 module.exports = {
   activate,
-  deactivate,
-  nuttxTerminal,              // Обязательно экспортируем, чтобы можно было везхде использовать
+  deactivate
 };
 
 // This method is called when your extension is activated
 function activate(context) {
-  // А здесь происходит инициализация терминала, чтобы каждый раз его не вызывать и не тратить память
-  initTerminal();
-  // Отображаем команды расширения в панели команд
   const treeProvider = new NuttxTreeProvider();
   vscode.window.registerTreeDataProvider('nuttxCommands', treeProvider);
 
@@ -64,15 +58,11 @@ function activate(context) {
   context.subscriptions.push(pConfigPaths);
   context.subscriptions.push(pConfigRun);
 
-  // Инициализируем терминал один для всех функций!
-  nuttxTerminal = initTerminal();
+  // Добавляем подписку на очистку терминала при деактивации расширения
+  context.subscriptions.push({
+    dispose: () => terminalManager.disposeTerminal()
+  });
 }
 
-// this method is called when your extension is deactivated
 function deactivate() {
-  // Когда расширение заканчивает работу, закрываем терминал
-  if(nuttxTerminal) {
-    nuttxTerminal.dispose();
-    nuttxTerminal = undefined;
-  }
 }

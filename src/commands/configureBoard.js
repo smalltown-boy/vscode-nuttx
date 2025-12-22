@@ -1,8 +1,8 @@
 const vscode = require("vscode");
-const extension = require('../extension');
+const terminalManager = require('../terminal');
 
 async function configureBoard(nuttxPath, selectedBoard) {
-  const terminal = extension.nuttxTerminal;
+  const terminal = terminalManager.getTerminal();
     
   if(terminal) {
     terminal.show();
