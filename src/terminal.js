@@ -4,7 +4,7 @@ function initTerminal() {
   try {
     const terminal = vscode.window.createTerminal({
       name: 'NuttX Terminal',
-      cwd: nuttxDesktopPath,
+      cwd: nuttxPath,
     });
 
     vscode.window.showInformationMessage('NuttX terminal initialized.');

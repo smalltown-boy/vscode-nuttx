@@ -1,6 +1,14 @@
+
 # Changelog
 
 All project changes are documented here.
+
+## Version 0.1.12 (2025-12-22)
+
+### Fix
+
+- The `publisher` field has been removed from the `package.json` file.
+- In the `terminal.js` file, the value of the `cwd` field has been corrected in the `initTerminal` function.
 
 ## Version 0.1.11 (2025-12-22)
 
