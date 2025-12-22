@@ -1,4 +1,5 @@
 const vscode = require("vscode");
+const extension = require('../extension');
 
 function configBoard() {
   const config = vscode.workspace.getConfiguration('nuttx');

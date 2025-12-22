@@ -1,6 +1,7 @@
 const vscode = require("vscode");
 
 const { configPaths } = require('../commands/configPaths');
+const extension = require('../extension');
 
 async function cleanProject() {
   const config = vscode.workspace.getConfiguration('nuttx');

@@ -3,6 +3,12 @@
 
 All project changes are documented here.
 
+## Version 0.2.0 (2025-12-22)
+
+### Fix
+
+- A critical error has been fixed that prevented calling the terminal common to all functions.
+
 ## Version 0.1.12 (2025-12-22)
 
 ### Fix
