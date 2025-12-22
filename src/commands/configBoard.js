@@ -10,15 +10,15 @@ function configBoard() {
     return;
   }
 
-  const terminal = vscode.window.createTerminal({
-    name: 'NuttX Menuconfig',
-    cwd: nuttxPath
-  });
-
-  terminal.show();
-  terminal.sendText(`make menuconfig`);
-
-  vscode.window.showInformationMessage("Open terminal...");
+  const terminal = extension.nuttxTerminal;
+    
+  if(terminal) {
+    terminal.show();
+    terminal.sendText('make menuconfig', true);
+    vscode.window.showInformationMessage("Run menuconfig for configuring board...");
+  } else {
+    vscode.window.showInformationMessage("Terminal not initialized!");
+  } 
 }
 
 module.exports = { configBoard };

@@ -1,6 +1,6 @@
 {
   "name": "nuttx-helper",
-  "version": "0.1.10",
+  "version": "0.1.13",
   "engines": {
     "vscode": "^1.32.0"
   },
@@ -12,10 +12,13 @@
     "type": "git",
     "url": "https://github.com/smalltown-boy/vscode-nuttx.git"
   },
+  "publisher":"Aleksandr Selivanov",
+  "description": "An extension for creating and building projects for Apache NuttX in the VSCode environment.",
 
   "activationEvents": [
     "onCommand:nuttx-helper.Info",
     "onCommand:nuttx-helper.Clean",
+    "onCommand:nuttx-helper.CleanAll",
     "onCommand:nuttx-helper.Build",
     "onCommand:nuttx-helper.CreateNuttXProject",
     "onCommand:nuttx-helper.SetBoard",
@@ -47,6 +50,11 @@
       {
         "command": "nuttx-helper.Clean",
         "title": "Clean project",
+        "category": "NuttX Helper"
+      },
+      {
+        "command": "nuttx-helper.CleanAll",
+        "title": "Сleaning the project with deletion of configuration files",
         "category": "NuttX Helper"
       },
       {

@@ -2,7 +2,21 @@
 
 All project changes are documented here.
 
-## Version 0.1.10 (2025-12-19)
+## Version 0.1.11 (2025-12-22)
+
+### Fix
+
+- The `Clean` function now cleans the project without deleting configuration files.
+- The `Clean all` feature has been added to completely clean the project.
+- When an error appears about the absence of the `nuttx` configuration paths when executing the `Clean` and `Clean all` commands, their configuration became available.
+- Fixed the import of the `configPaths` function in the `cleanProject` and `cleanAllProject` files.
+- Added the definition `onCommand:nuttx-helper.CleanAll` to the `activationEvents` section of the `package.json` file.
+- Two icons with `.png` and `.svg` extensions have been added to the `icon` folder.
+- The `publisher` and `description` fields with appropriate content have been added to the `package.json` file.
+- In the `extension.js` file, a terminal is created when the extension starts, making it available for use by other commands. 
+This was implemented to avoid creating a large number of terminals when executing commands, which could consume RAM.
+
+## Version 0.1.10 (2025-12-18)
 
 ### Fix
 

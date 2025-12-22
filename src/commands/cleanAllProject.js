@@ -1,8 +1,9 @@
 const vscode = require("vscode");
 
-const { configPaths } = require('../commands/configPaths');
+const extension = require('../extension');
+const { configPaths } = require('./configPaths');
 
-async function cleanProject() {
+async function cleanAllProject() {
   const config = vscode.workspace.getConfiguration('nuttx');
   let nuttxPath = config.get('nuttxPath');
 
@@ -69,14 +70,14 @@ async function cleanProject() {
 
   // Продолжаем выполнение
   const terminal = extension.nuttxTerminal;
-    
+  
   if(terminal) {
     terminal.show();
-    terminal.sendText('make clean', true);
-    vscode.window.showInformationMessage("Cleaning the project...");
+    terminal.sendText('make distclean', true);
+    vscode.window.showInformationMessage("Cleaning the project with deletion of configuration files...");
   } else {
     vscode.window.showInformationMessage("Terminal not initialized!");
-  } 
+  }  
 }
 
-module.exports = { cleanProject };
+module.exports = { cleanAllProject };

@@ -19,7 +19,8 @@ class NuttxTreeProvider {
       // Корневые элементы
       return [
         new TreeItem('Build project', 'nuttx-helper.Build', vscode.TreeItemCollapsibleState.None, 'play'),
-        new TreeItem('Clean project', 'nuttx-helper.Clean', vscode.TreeItemCollapsibleState.None, 'trash'),
+        new TreeItem('Clean', 'nuttx-helper.Clean', vscode.TreeItemCollapsibleState.None, 'trash'),
+        new TreeItem('Clean all', 'nuttx-helper.CleanAll', vscode.TreeItemCollapsibleState.None, 'trash'),
         new TreeItem('Configure paths', 'nuttx-helper.ConfigPaths', vscode.TreeItemCollapsibleState.None, 'wrench'),
         new TreeItem('Set board', 'nuttx-helper.SetBoard', vscode.TreeItemCollapsibleState.None, 'gear'),
         new TreeItem('Configure board', 'nuttx-helper.ConfigBoard', vscode.TreeItemCollapsibleState.None, 'gear'),

@@ -1,4 +1,5 @@
 const vscode = require("vscode");
+const extension = require('../extension');
 
 async function buildProject() {
   const config = vscode.workspace.getConfiguration('nuttx');
@@ -65,15 +66,15 @@ async function buildProject() {
     }
   }
 
-  const terminal = vscode.window.createTerminal({
-    name: 'NuttX Build',
-    cwd: nuttxPath
-  });
+  const terminal = extension.nuttxTerminal;
 
-  terminal.show();
-  terminal.sendText(`make`);
-
-  vscode.window.showInformationMessage("Build NuttX...");
+  if(terminal) {
+    terminal.show();
+    terminal.sendText('make', true);
+    vscode.window.showInformationMessage("Build NuttX...");
+  } else {
+    vscode.window.showInformationMessage("Terminal not initialized!");
+  }
 }
 
 module.exports = { buildProject };
