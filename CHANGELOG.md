@@ -1,7 +1,12 @@
-
 # Changelog
 
 All project changes are documented here.
+
+## Version 0.2.2 (2025-12-24)
+
+### Fix
+
+- A new instruction item for compiling and building the extension has been added.
 
 ## Version 0.2.1 (2025-12-22)
 
@@ -15,12 +20,28 @@ All project changes are documented here.
 
 - A critical error has been fixed that prevented calling the terminal common to all functions.
 
-## Version 0.1.12 (2025-12-22)
+## Version 0.1.14 (2025-12-22)
 
 ### Fix
 
 - The `publisher` field has been removed from the `package.json` file.
 - In the `terminal.js` file, the value of the `cwd` field has been corrected in the `initTerminal` function.
+
+## Version 0.1.13 (2025‑12‑22)
+
+### Fix
+
+- In the `extension.js` file, a terminal is created when the extension starts, making it available for use by other commands. 
+This was implemented to avoid creating a large number of terminals when executing commands, which could consume RAM.
+
+## Version 0.1.12 (2025-12-22)
+
+### Fix
+
+- Fixed the import of the `configPaths` function in the `cleanProject` and `cleanAllProject` files.
+- Added the definition `onCommand:nuttx-helper.CleanAll` to the `activationEvents` section of the `package.json` file.
+- Two icons with `.png` and `.svg` extensions have been added to the `icon` folder.
+- The `publisher` and `description` fields with appropriate content have been added to the `package.json` file.
 
 ## Version 0.1.11 (2025-12-22)
 
@@ -29,12 +50,6 @@ All project changes are documented here.
 - The `Clean` function now cleans the project without deleting configuration files.
 - The `Clean all` feature has been added to completely clean the project.
 - When an error appears about the absence of the `nuttx` configuration paths when executing the `Clean` and `Clean all` commands, their configuration became available.
-- Fixed the import of the `configPaths` function in the `cleanProject` and `cleanAllProject` files.
-- Added the definition `onCommand:nuttx-helper.CleanAll` to the `activationEvents` section of the `package.json` file.
-- Two icons with `.png` and `.svg` extensions have been added to the `icon` folder.
-- The `publisher` and `description` fields with appropriate content have been added to the `package.json` file.
-- In the `extension.js` file, a terminal is created when the extension starts, making it available for use by other commands. 
-This was implemented to avoid creating a large number of terminals when executing commands, which could consume RAM.
 
 ## Version 0.1.10 (2025-12-18)
 

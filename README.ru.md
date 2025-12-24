@@ -39,19 +39,25 @@
    cd vscode-nuttx
     ```
     
-3. Соберите проект:
+3. Установите инструмент для компиляции кода TypeScript:
+
+	```bash
+	npm install -g TypeScript
+	```
+	
+4. Соберите проект:
 
    ```bash
    npm run compile
    ```
     
-4. Установите инструмент vsce для упаковки расширения в формат VSIX:
+5. Установите инструмент vsce для упаковки расширения в формат VSIX:
 
     ```bash
    npm install -g @vscode/vsce
    ```
 
-5. Упакуйте проект:
+6. Упакуйте проект:
 
     ```bash
    vsce package
