@@ -2,6 +2,9 @@ const vscode = require("vscode");
 const terminalManager = require('../terminal');
 
 async function configureBoard(nuttxPath, selectedBoard) {
+  const config = vscode.workspace.getConfiguration('nuttx');
+  await config.update('selectedBoard"', appsPath, vscode.ConfigurationTarget.Global);
+
   const terminal = terminalManager.getTerminal();
     
   if(terminal) {

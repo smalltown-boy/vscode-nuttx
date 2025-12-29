@@ -17,8 +17,24 @@ module.exports = {
   deactivate
 };
 
-// This method is called when your extension is activated
+// Activate 
 function activate(context) {
+  // Reading nuttx paths 
+  const config = vscode.workspace.getConfiguration();
+  
+  const appsPath = config.get('nuttx.appsPath');
+  const nuttxPath = config.get('nuttx.nuttxPath');
+  const selectedBoard = config.get('nuttx.selectedBoard');
+
+  // Check configurations
+  if (!appsPath || !nuttxPath) {
+    vscode.window.showWarningMessage('NuttX paths not configured!');
+  }
+
+  if ( !selectedBoard ) {
+    vscode.window.showWarningMessage('Board not selected!');
+  }
+
   const treeProvider = new NuttxTreeProvider();
   vscode.window.registerTreeDataProvider('nuttxCommands', treeProvider);
 

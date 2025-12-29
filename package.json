@@ -1,6 +1,6 @@
 {
   "name": "nuttx-helper",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "engines": {
     "vscode": "^1.32.0"
   },
@@ -12,6 +12,7 @@
     "type": "git",
     "url": "https://github.com/smalltown-boy/vscode-nuttx.git"
   },
+  "icon": "icon/nuttx_logo.png",
   "description": "An extension for creating and building projects for Apache NuttX in the VSCode environment.",
 
   "activationEvents": [

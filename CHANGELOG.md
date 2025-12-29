@@ -2,6 +2,12 @@
 
 All project changes are documented here.
 
+## Version 0.2.3 (2025-12-29)
+
+### Fix
+
+- After the extension starts, it checks for the existence of paths to the `nuttx` directories, and also verifies whether a microcontroller or a project’s debug board has been saved.
+
 ## Version 0.2.2 (2025-12-24)
 
 ### Fix

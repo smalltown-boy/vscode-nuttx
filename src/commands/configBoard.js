@@ -16,7 +16,6 @@ function configBoard() {
   if(terminal) {
     terminal.show();
     terminal.sendText('make menuconfig', true);
-    //terminal.sendText('whoami', true);
     vscode.window.showInformationMessage("Run menuconfig for configuring board...");
   } else {
     vscode.window.showInformationMessage("Terminal not initialized!");
